@@ -67,7 +67,7 @@ func New(loggerOutputDir, loggerOutputFilePath string) (Logger, error) {
 func createLogsDirectory(loggerOutputDir string) error {
 	if _, err := os.Stat(loggerOutputDir); os.IsNotExist(err) {
 		if err = os.MkdirAll(loggerOutputDir, os.ModePerm); err != nil {
-			return fmt.Errorf("ошибка при создании директории - %s", err)
+			return fmt.Errorf("ошибка при создании директории - %w", err)
 		}
 	}
 
