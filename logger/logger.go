@@ -31,7 +31,7 @@ type Logger interface {
 
 func New(loggerOutputDir, loggerOutputFilePath string) (Logger, error) {
 	if err := createLogsDirectory(loggerOutputDir); err != nil {
-		return nil, fmt.Errorf("failed to create log directory: %v", err)
+		return nil, fmt.Errorf("failed to create log directory: %w", err)
 	}
 
 	config := zap.Config{
@@ -54,7 +54,7 @@ func New(loggerOutputDir, loggerOutputFilePath string) (Logger, error) {
 
 	zapLogger, err := config.Build()
 	if err != nil {
-		return nil, fmt.Errorf("ошибка при создании логгера - %s", err)
+		return nil, fmt.Errorf("ошибка при создании логгера - %w", err)
 	}
 
 	sugar := zapLogger.Sugar()
