@@ -14,7 +14,7 @@ const (
 	clientLoggerKey   = "component"
 	clientLoggerValue = "rpc_server"
 	serverProtocol    = "tcp"
-	serverAddress     = ":1234"
+	serverAddress     = ":5050"
 	clientLogDir      = "client_logs"
 	clientLogFilePath = "client_logs/client.log"
 )
@@ -81,7 +81,7 @@ func main() {
 	}
 
 	if isOperationSequence {
-		err = parseOperationSequence(client, operations, args, l)
+		err = operationSequence(client, operations, args, l)
 		if err != nil {
 			fmt.Printf("ошибка при вычислении результата операции - %s\n", err)
 			l.Fatalf("ошибка при вычислении результата - %s", err)
@@ -100,7 +100,7 @@ func main() {
 	l.Infof("Результат: %f\n", result)
 }
 
-func parseOperationSequence(
+func operationSequence(
 	client *rpc.Client,
 	operations map[string]struct{},
 	args Arguments,

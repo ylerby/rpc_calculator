@@ -12,7 +12,7 @@ const (
 	serverLoggerKey   = "component"
 	serverLoggerValue = "rpc_server"
 	serverProtocol    = "tcp"
-	serverAddress     = ":1234"
+	serverAddress     = ":5050"
 	serverLogDir      = "server_logs"
 	serverLogFilePath = "server_logs/server.log"
 )
